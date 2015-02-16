@@ -1,19 +1,19 @@
-jQuery(document).ready(function($){
+$(document).ready(function($){
 	var secondaryNav = $('.cd-secondary-nav'),
 		secondaryNavTopPosition = secondaryNav.offset().top,
 		taglineOffesetTop = $('#cd-intro-tagline').offset().top + $('#cd-intro-tagline').height() + parseInt($('#cd-intro-tagline').css('paddingTop').replace('px', '')),
 		contentSections = $('.cd-section');
-	
+
 	$(window).on('scroll', function(){
 		//on desktop - assign a position fixed to logo and action button and move them outside the viewport
 		( $(window).scrollTop() > taglineOffesetTop ) ? $('#cd-logo, .cd-btn').addClass('is-hidden') : $('#cd-logo, .cd-btn').removeClass('is-hidden');
-		
+
 		//on desktop - fix secondary navigation on scrolling
 		if($(window).scrollTop() > secondaryNavTopPosition ) {
 			//fix secondary navigation
 			secondaryNav.addClass('is-fixed');
 			//push the .cd-main-content giving it a top-margin
-			$('.cd-main-content').addClass('has-top-margin');	
+			$('.cd-main-content').addClass('has-top-margin');
 			//on Firefox CSS transition/animation fails when parent element changes position attribute
 			//so we to change secondary navigation childrens attributes after having changed its position value
 			setTimeout(function() {
@@ -62,7 +62,7 @@ jQuery(document).ready(function($){
         $('body,html').animate({
         	'scrollTop': target.offset().top - secondaryNav.height() + 1
         	}, 400
-        ); 
+        );
         //on mobile - close secondary navigation
         $('.cd-secondary-nav-trigger').removeClass('menu-is-open');
         secondaryNav.find('ul').removeClass('is-visible');
