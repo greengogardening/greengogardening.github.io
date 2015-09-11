@@ -279,7 +279,7 @@
 
 					</div>
 					<div id="contact-form">
-						<form action='http://formspree.io/greengo@greengogardening.com' method='POST'>
+						<form id="formspree" method='POST'>
 							<div class='form-group'>
 								<label for='exampleInputName'>Name</label>
 								<input class='form-control' id='exampleInputName' name='name' placeholder='Name' type='text'>
@@ -292,8 +292,13 @@
 								<label for='exampleTextArea'>Message</label>
 								<textarea class='form-control' name='message' placeholder='How can we better assist you?' rows='3'></textarea>
 							</div>
+							<input type="text" name="_gotcha" style="display:none" />
 							<button class='btn btn-primary' type='submit'>Submit</button>
 						</form>
+						<script>
+						    var contactform =  document.getElementById('formspree');
+						    contactform.setAttribute('action', 'http://formspree.io/' + 'greengo' + '@' + 'greengogardening' + '.' + 'com');
+						</script>
 					</div>
 				</section> <!-- #cd-placeholder-4 -->
 
